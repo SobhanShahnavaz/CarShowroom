@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'Cars.css' %}">
+    <style>
+      table,
+      td,
+      tr {
+        padding: 10px;
+        direction:ltr;
+      }
+      body{
+        background-color: #f4f6fd;
+        background-image:linear-gradient( 135deg, #f4f6fd 10%, #f8faff 100%)
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title >Cars</title>
+  </head>
+  <body>
+    <center>
+      {% if user.is_authenticated %}
+      Hello {{ user.username }}!
+      <a href="Logout/">Log Out</a>
+      <h1>Cars</h1>
+      <a href="add/">Add new cars</a>
+            <table border="1">
+        <tr>
+          <td><h1>Name</h1></td>
+          <td><b>Fuel Type</b></td>
+          <td><i>Photo Link</i></td>
+          <td><b>Acceleration</b></td>
+          <td><i>Top Speed</i></td>
+          <td><b>Total Power</b></td>
+          <td><i>Total Torque</i></td>
+          <td><b>Drive</b></td>
+          <td><i>Car Body</i></td>
+          <td><b>Feul Economy</b></td>
+          <td colspan="2"><i>Operations</i></td>
+        </tr>
+        {% for x in Car %}
+        <tr>
+          <td><h1>{{ x.Name }}</h1></td>
+          <td><b>{{ x.FuelType }}</b></td>
+          <td><i>{{ x.PhotoLink }}</i></td>
+          <td><i>{{ x.Acceleration }}</i></td>
+          <td><b>{{ x.TopSpeed }}</b></td>
+          <td><i>{{ x.TotalPower }}</i></td>
+          <td><b>{{ x.TotalTorque }}</b></td>
+          <td><i>{{ x.Drive }}</i></td>
+          <td><b>{{ x.CarBody }}</b></td>
+          <td><i>{{ x.FeulEconomy }}</i></td>
+          <td><a href="update/{{ x.id }}">update</a></td>
+          <td><a href="delete/{{ x.id }}">delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      
+      {% else %}
+        <p>شما وارد نشده اید.</p>
+        <a href="{% url 'login' %}">Log In</a>
+      {% endif %}
+    </center>
+  </body>
+</html>

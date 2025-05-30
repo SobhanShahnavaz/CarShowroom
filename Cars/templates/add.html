@@ -1,0 +1,37 @@
+<h1>Add Car</h1>
+
+<form action="addrecord/" method="post">
+  {% csrf_token %} Name:<br />
+  <input name="Name" value="{{ Car.Name }}" />
+  <br /><br />
+  FuelType:<br />
+  <input name="FuelType" value="{{ Car.FuelType }}" />
+  <br /><br />
+  PhotoLink:<br />
+  <input name="PhotoLink" value="{{ Car.PhotoLink }}" />
+  <br /><br />
+  Acceleration:<br />
+  <input name="Acceleration" value="{{ Car.Acceleration }}" />
+  <br /><br />
+  TopSpeed:<br />
+  <input name="TopSpeed" value="{{ Car.TopSpeed }}" />
+  <br /><br />
+  TotalPower:<br />
+  <input name="TotalPower" value="{{ Car.TotalPower }}" />
+  <br /><br />
+  TotalTorque:<br />
+  <input name="TotalTorque" value="{{ Car.TotalTorque }}" />
+  <br /><br />
+  Drive:<br />
+  <input name="Drive" value="{{ Car.Drive }}" />
+  <br /><br />
+  CarBody:<br />
+  <input name="CarBody" value="{{ Car.CarBody }}" />
+  <br /><br />
+  FeulEconomy:<br />
+  <input name="FeulEconomy" value="{{ Car.FeulEconomy }}" />
+  <br /><br />
+  
+  <br /><br />
+  <input type="submit" value="Submit" />
+</form>

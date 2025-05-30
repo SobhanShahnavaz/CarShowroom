@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'Cars.css' %}">
+<title >Cars</title>
+<body>
+    
+
+<nav>
+	<a href="http://127.0.0.1:8000/">Home</a>
+	<a href="http://127.0.0.1:8000/About">About</a>
+	<a href="http://127.0.0.1:8000/Contact">Contact Us</a>
+	<a href="https://Sobhan-Shahnavaz.ir" target="_blank">Personal Website</a>
+	<div class="animation start-home"></div>
+</nav>
+
+    <h1 id="main-title" >Cars</h1>
+    {% for x in Car %}
+<div id="container">
+    	
+	
+        <div class="product-details">
+            
+        <h1>{{ x.Name }}</h1>
+
+        <span class="hint-star star">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        </span>
+     
+    <div class="control"> 
+    </div>  
+    </div>
+
+        
+    <div class="product-image">
+        
+        <img  src="{% static x.PhotoLink %}"/>>
+        
+    <div class="info">
+        <h2>Car Specs</h2>
+        <ul>
+            <li><strong>Fuel Type: </strong>{{ x.FuelType }}</li>
+            <li><strong>Acceleration: </strong>{{ x.Acceleration }}</li>
+            <li><strong>Top Speed: </strong>{{ x.TopSpeed }}</li>
+            <li><strong>Total Power: </strong>{{ x.TotalPower }}</li>
+            <li><strong>Total Torque: </strong>{{ x.TotalTorque }}</li>
+            <li><strong>Drive: </strong>{{ x.Drive }}</li>
+            <li><strong>Car Body: </strong>{{ x.CarBody }}</li>
+            <li><strong>Feul Economy: </strong>{{ x.FeulEconomy }}</li>
+        </ul>
+    </div>
+    </div>
+
+    </div>
+    {% endfor %}
+
+</body>
+    </html>
+
+    
+    

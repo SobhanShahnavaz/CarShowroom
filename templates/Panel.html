@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  سلام {{ user.username }}!
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>شما وارد نشده اید.</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
